@@ -8,13 +8,13 @@ from main import db
 
 @app.route("/order", methods=["POST"])
 def add_order():
-    order_id = request.json['order_id']
-    item_id = request.json['item_id']
-    quantity = request.json['quantity']	
-    price = request.json['price']
-    user_id = request.json['user_id']
-    hotel_id = request.json['hotel_id']
-    waiter_id = request.json['waiter_id']
+    order_id = request.form['order_id']
+    item_id = request.form['item_id']
+    quantity = request.form['quantity']	
+    price = request.form['price']
+    user_id = request.form['user_id']
+    hotel_id = request.form['hotel_id']
+    waiter_id = request.form['waiter_id']
 
     new_order = Order(order_id, item_id, quantity, price, user_id, hotel_id, waiter_id)
 
@@ -44,13 +44,13 @@ def order_detail(id):
 def order_update(id):
     order = Order.query.get(id)
 
-    order_id = request.json['order_id']
-    item_id = request.json['item_id']
-    quantity = request.json['quantity']	
-    price = request.json['price']
-    user_id = request.json['user_id']
-    hotel_id = request.json['hotel_id']
-    waiter_id = request.json['waiter_id']
+    order_id = request.form['order_id']
+    item_id = request.form['item_id']
+    quantity = request.form['quantity']	
+    price = request.form['price']
+    user_id = request.form['user_id']
+    hotel_id = request.form['hotel_id']
+    waiter_id = request.form['waiter_id']
 
 
     order.order_id = order_id
@@ -79,10 +79,10 @@ def order_delete(id):
 # endpoint to create new user
 @app.route("/cook", methods=["POST"])
 def add_cook():
-    cook_id = request.json['cook_id']
-    hotel_id = request.json['hotel_id']
-    cook_name = request.json['cook_name']
-    order_id = request.json['order_id']
+    cook_id = request.form['cook_id']
+    hotel_id = request.form['hotel_id']
+    cook_name = request.form['cook_name']
+    order_id = request.form['order_id']
     db.session.add(new_cook)
     db.session.commit()
 
@@ -107,10 +107,10 @@ def cook_detail(id):
 # endpoint to update user
 @app.route("/cook/<id>", methods=["PUT"])
 def cook_update(id):
-    cook_id= request.json['cook_id']
-    hotel_id = request.json['hotel_id']
-    cook_name = request.json['cook_name']
-    order_id = request.json['order_id']
+    cook_id= request.form['cook_id']
+    hotel_id = request.form['hotel_id']
+    cook_name = request.form['cook_name']
+    order_id = request.form['order_id']
 
     cook.hotel_id = hotel_id
     cook.cook_name = cook_name
@@ -133,12 +133,12 @@ def cook_delete(id):
 
 @app.route("/waiter", methods=["POST"])
 def add_waiter():
-    hotel_id = request.json['hotel_id']
-    waiter_name = request.json['waiter_name']
-    waiter_contact = request.json['waiter_contact']
-    waiter_free = request.json['waiter_free']
-    order_id = request.json['order_id']
-    waiter_id = request.json['waiter_id']
+    hotel_id = request.form['hotel_id']
+    waiter_name = request.form['waiter_name']
+    waiter_contact = request.form['waiter_contact']
+    waiter_free = request.form['waiter_free']
+    order_id = request.form['order_id']
+    waiter_id = request.form['waiter_id']
     db.session.add(new_waiter)
     db.session.commit()
 
@@ -163,12 +163,12 @@ def waiter_detail(id):
 # endpoint to update user
 @app.route("/waiter/<id>", methods=["PUT"])
 def waiter_update(id):
-    hotel_id = request.json['hotel_id']
-    waiter_name = request.json['waiter_name']
-    waiter_contact = request.json['waiter_contact']
-    waiter_free = request.json['waiter_free']
-    order_id = request.json['order_id']
-    waiter_id = request.json['waiter_id']
+    hotel_id = request.form['hotel_id']
+    waiter_name = request.form['waiter_name']
+    waiter_contact = request.form['waiter_contact']
+    waiter_free = request.form['waiter_free']
+    order_id = request.form['order_id']
+    waiter_id = request.form['waiter_id']
 
     waiter.hotel_id = hotel_id
     waiter.waiter_name = waiter_name
@@ -194,22 +194,22 @@ def waiter_delete(id):
 # endpoint to create new hotels
 @app.route("/hotels", methods=["POST"])
 def add_hotels():
-    hotel_id = request.json['hotel_id']
-    hotel_name = request.json['hotel_name']
-    hotel_address = request.json['hotel_address']
-    hotel_open = request.json['hotel_open']
-    hotel_moreinfo = request.json['hotel_moreinfo']
-    hotel_phone = request.json['hotel_phone']
-    hotel_email = request.json['hotel_email']
-    hotel_lat = request.json['hotel_lat']
-    hotel_long = request.json['hotel_long']
-    hotel_capacity = request.json['hotel_capacity']
-    hotel_desc = request.json['hotel_desc']
-    hotel_stars = request.json['hotel_stars']
-    hotel_menupic = request.json['hotel_menupic']
-    hotel_close = request.json['hotel_close']
-    hotel_hotelpic = request.json['hotel_hotelpic']
-    hotel_avgcost = request.json['hotel_avgcost']
+    hotel_id = request.form['hotel_id']
+    hotel_name = request.form['hotel_name']
+    hotel_address = request.form['hotel_address']
+    hotel_open = request.form['hotel_open']
+    hotel_moreinfo = request.form['hotel_moreinfo']
+    hotel_phone = request.form['hotel_phone']
+    hotel_email = request.form['hotel_email']
+    hotel_lat = request.form['hotel_lat']
+    hotel_long = request.form['hotel_long']
+    hotel_capacity = request.form['hotel_capacity']
+    hotel_desc = request.form['hotel_desc']
+    hotel_stars = request.form['hotel_stars']
+    hotel_menupic = request.form['hotel_menupic']
+    hotel_close = request.form['hotel_close']
+    hotel_hotelpic = request.form['hotel_hotelpic']
+    hotel_avgcost = request.form['hotel_avgcost']
     
     
     
@@ -240,12 +240,12 @@ def hotels_detail(id):
 # endpoint to update hotels
 @app.route("/hotels/<id>", methods=["PUT"])
 def hotels_update(id):
-    hotelsname = request.json['hotelsname']
-    email = request.json['email']
-    hotelsfirstname = request.json['hotelsfirstname']
-    hotelslastname = request.json['hotelslastname']
-    hotelsphone = request.json['hotelsphone']
-    hotelspass = request.json['hotelspass']
+    hotelsname = request.form['hotelsname']
+    email = request.form['email']
+    hotelsfirstname = request.form['hotelsfirstname']
+    hotelslastname = request.form['hotelslastname']
+    hotelsphone = request.form['hotelsphone']
+    hotelspass = request.form['hotelspass']
 
     hotels.hotel_id= hotel_id
     hotels.hotel_name = hotel_name
@@ -280,12 +280,12 @@ def hotels_delete(id):
 # endpoint to create new user
 @app.route("/products", methods=["POST"])
 def add_trans():
-    trans_id = request.json['trans_id']
-    user_id = request.json['user_id']
-    hotel_id = request.json['hotel_id']	
-    total = request.json['total']
-    coupon_disc = request.json['coupon_disc']
-    trans_date = request.json['trans_date']
+    trans_id = request.form['trans_id']
+    user_id = request.form['user_id']
+    hotel_id = request.form['hotel_id']	
+    total = request.form['total']
+    coupon_disc = request.form['coupon_disc']
+    trans_date = request.form['trans_date']
 
     new_transaction = Trans(trans_id, user_id, hotel_id, total, coupon_disc, trans_date)
 
@@ -314,12 +314,12 @@ def trans_detail(id):
 @app.route("/trans/<id>", methods=["PUT"])
 def trans_update(id):
     trans = Trans.query.get(id)
-    trans_ids = request.json['trans_id']
-    user_ids = request.json['user_id']
-    hotel_ids = request.json['hotel_id']	
-    totals = request.json['total']
-    coupon_discs = request.json['coupon_disc']
-    trans_dates = request.json['trans_date']
+    trans_ids = request.form['trans_id']
+    user_ids = request.form['user_id']
+    hotel_ids = request.form['hotel_id']	
+    totals = request.form['total']
+    coupon_discs = request.form['coupon_disc']
+    trans_dates = request.form['trans_date']
 
     trans.trans_id = trans_id
     trans.user_id = user_id
@@ -382,12 +382,12 @@ def user_detail(id):
 # endpoint to update user
 @app.route("/user/<id>", methods=["PUT"])
 def user_update(id):
-    username = request.json['username']
-    email = request.json['email']
-    userfirstname = request.json['userfirstname']
-    userlastname = request.json['userlastname']
-    userphone = request.json['userphone']
-    userpass = request.json['userpass']
+    username = request.form['username']
+    email = request.form['email']
+    userfirstname = request.form['userfirstname']
+    userlastname = request.form['userlastname']
+    userphone = request.form['userphone']
+    userpass = request.form['userpass']
 
     user.email = email
     user.username = username
@@ -414,10 +414,10 @@ def user_delete(id):
     # endpoint to create new user
 @app.route("/tables", methods=["POST"])
 def add_tables():
-    tables_id = request.json['tables_id']
-    hotel_id = request.json['hotel_id']
-    no_of_seats= request.json['no_of_seats']
-    reserved = request.json['reserved']
+    tables_id = request.form['tables_id']
+    hotel_id = request.form['hotel_id']
+    no_of_seats= request.form['no_of_seats']
+    reserved = request.form['reserved']
     db.session.add(new_tables)
     db.session.commit()
 
@@ -442,10 +442,10 @@ def tables_detail(id):
 # endpoint to update user
 @app.route("/tables/<id>", methods=["PUT"])
 def tables_update(id):
-    tables_id = request.json['tables_id']
-    hotel_id = request.json['hotel_id']
-    no_of_seats= request.json['no_of_seats']
-    reserved = request.json['reserved']
+    tables_id = request.form['tables_id']
+    hotel_id = request.form['hotel_id']
+    no_of_seats= request.form['no_of_seats']
+    reserved = request.form['reserved']
 
     tables.hotel_id = hotel_id
     tables.no_of_seats = no_of_seats
@@ -469,13 +469,13 @@ def tables_delete(id):
 # endpoint to create new user
 @app.route("/products", methods=["POST"])
 def add_menu():
-    menu_id = request.json['menu_id']
-    name = request.json['name']
-    hotel_id = request.json['hotel_id']	
-    price = request.json['price']
-    available = request.json['available']
-    discounted = request.json['discounted']
-    bestseller = request.json['bestseller']
+    menu_id = request.form['menu_id']
+    name = request.form['name']
+    hotel_id = request.form['hotel_id']	
+    price = request.form['price']
+    available = request.form['available']
+    discounted = request.form['discounted']
+    bestseller = request.form['bestseller']
 
     new_menu = Menu(menu_id, name, hotel_id, price, available, discounted, bestseller)
 
@@ -505,13 +505,13 @@ def menu_detail(id):
 def menu_update(id):
     menu = Menu.query.get(id)
 
-    menu_id = request.json['menu_id']
-    name = request.json['name']
-    hotel_id = request.json['hotel_id']	
-    price = request.json['price']
-    available = request.json['available']
-    discounted = request.json['discounted']
-    bestseller = request.json['bestseller']
+    menu_id = request.form['menu_id']
+    name = request.form['name']
+    hotel_id = request.form['hotel_id']	
+    price = request.form['price']
+    available = request.form['available']
+    discounted = request.form['discounted']
+    bestseller = request.form['bestseller']
 
     menu.menu_id = menu_id
     menu.name = name
