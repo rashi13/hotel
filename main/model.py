@@ -90,6 +90,8 @@ class Hotels(db.Model):
     hotel_lat = db.Column(db.Float)
     hotel_long = db.Column(db.Float)
     hotel_capacity = db.Column(db.Integer)
+    hotel_open = db.Column(db.String)
+    hotel_close = db.Column(db.String)
     hotel_desc = db.Column(db.String(200))
     hotel_stars = db.Column(db.Float)
     hotel_menupic = db.Column(db.String(2000))
