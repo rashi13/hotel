@@ -2,7 +2,7 @@ from flask import request, jsonify
 from main import app
 from main.model import Order, OrderSchema, order_schema, orders_schema, Cook, CookSchema, cook_schema, cooks_schema, Waiter, WaiterSchema, waiter_schema, waiters_schema, Hotels, HotelsSchema, hotels_schema, hotelss_schema, Trans, TransSchema, trans_schema, transs_schema, User, UserSchema, user_schema, users_schema, Tables, TablesSchema, tables_schema, tabless_schema, Menu,MenuSchema,menu_schema, menus_schema
 from flask_marshmallow import Marshmallow
-
+from main import db
 
 
 
@@ -345,13 +345,13 @@ def trans_delete(id):
 # endpoint to create new user
 @app.route("/user", methods=["POST"])
 def add_user():
-    username = request.json['username']
-    email = request.json['email']
-    userid = request.json['userid']
-    userfirstname = request.json['userfirstname']
-    userlastname = request.json['userlastname']
-    userphone = request.json['userphone']
-    userpass = request.json['userpass']
+    username = request.form['username']
+    email = request.form['email']
+    userid = request.form['userid']
+    userfirstname = request.form['userfirstname']
+    userlastname = request.form['userlastname']
+    userphone = request.form['userphone']
+    userpass = request.form['userpass']
     
     
     
