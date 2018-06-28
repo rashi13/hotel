@@ -90,8 +90,6 @@ class Hotels(db.Model):
     hotel_lat = db.Column(db.Float)
     hotel_long = db.Column(db.Float)
     hotel_capacity = db.Column(db.Integer)
-    hotel_open = db.Column(db.Time)
-    hotel_close = db.Column(db.Time)
     hotel_desc = db.Column(db.String(200))
     hotel_stars = db.Column(db.Float)
     hotel_menupic = db.Column(db.String(2000))
@@ -99,7 +97,7 @@ class Hotels(db.Model):
     hotel_avgcost = db.Column(db.Float)
     hotel_moreinfo = db.Column(db.String(2000))
 
-    def __init__(self,hotel_id, hotel_name,hotel_address,hotel_open,hotel_close,hotel_desc,hotel_stars,hotel_menupic,      hotel_hotelpic,hotel_avgcost,hotel_moreinfo,hotel_phone, hotel_email,hotel_lat, hotel_long,hotel_capacity):
+    def __init__(self,hotel_id, hotel_name,hotel_address,hotel_open,hotel_close,hotel_desc,hotel_stars,hotel_menupic, hotel_hotelpic,hotel_avgcost,hotel_moreinfo,hotel_phone, hotel_email,hotel_lat, hotel_long,hotel_capacity):
         self.hotel_id= hotel_id
         self.hotel_name = hotel_name
         self.hotel_address  = hotel_address
